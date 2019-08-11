@@ -69,8 +69,8 @@ func (l fakeLorem) Words(num int) []string {
 // Example:
 //	Lorem{}.Sentence(3) // Necessitatibus cum autem.
 func (l fakeLorem) Sentence(words int) string {
-	s := strings.Join(l.Words(words), " ")
-	return strings.ToTitle(s[:1]) + s[1:] + "."
+	s := []rune(strings.Join(l.Words(words), " "))
+	return strings.ToTitle(string(s[:1])) + string(s[1:]) + "."
 }
 
 // Sentences returns a slice of "num" sentences, 3 to 11 words each.
